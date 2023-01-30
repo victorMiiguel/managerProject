@@ -1,0 +1,11 @@
+<RCC>
+  <qresource prefix="error-icon">
+    <file>cil-x.png</file>
+  </qresource>
+  <qresource prefix="profile-pic">
+    <file>avatar.png</file>
+  </qresource>
+  <qresource prefix="logo">
+    <file>logo_360x90.png</file>
+  </qresource>
+</RCC>

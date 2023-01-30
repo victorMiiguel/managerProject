@@ -1,0 +1,11 @@
+<RCC>
+  <qresource prefix="header">
+    <file>top_bar2.png</file>
+  </qresource>
+  <qresource prefix="body">
+    <file>background.png</file>
+  </qresource>
+  <qresource prefix="footer">
+    <file>background_bottom.png</file>
+  </qresource>
+</RCC>
