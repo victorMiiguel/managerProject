@@ -19,6 +19,7 @@ class Window(QMainWindow):
         self.show()
 
 
+
         self.ui.tableView.setModel(self.managerModel.model)
         self.ui.tableView.setSelectionBehavior(QAbstractItemView.SelectRows)
         self.ui.tableView.resizeColumnsToContents()
@@ -27,12 +28,14 @@ class Window(QMainWindow):
         self.ui.pushButton_delete_all.clicked.connect(self.clearContents)
 
     
+
     def openAddDialog(self):
         """Open dialog box to add new information into database"""
         dialog = AddDialog(self)
         if dialog.exec() == QDialog.Accepted:
             self.managerModel.addContent(dialog.data)
             self.ui.tableView.resizeColumnsToContents()
+
 
 
     def deleteContent(self):
@@ -50,6 +53,7 @@ class Window(QMainWindow):
 
         if messageBox == QMessageBox.Ok:
             self.managerModel.deleteContent(row)
+
 
 
     def clearContents(self):
@@ -74,6 +78,8 @@ class AddDialog(QDialog):
         self.ui_dialog = Ui_Dialog()
         self.data = None
         self.ui_dialog.setupUi(self)
+
+
         
         self.platformField = self.ui_dialog.lineEdit_platform
         self.loginField = self.ui_dialog.lineEdit_username
@@ -81,6 +87,8 @@ class AddDialog(QDialog):
 
         self.ui_dialog.buttonBox.accepted.connect(self.accept)
         self.ui_dialog.buttonBox.rejected.connect(self.reject)
+
+
 
     def accept(self):
 
