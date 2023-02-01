@@ -3,10 +3,63 @@
 import sys
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import *
+from ui_login import Ui_login
 from ui_main_window import Ui_MainWindow
 from ui_dialog_box import Ui_Dialog
 from model import ManagerModel
 from database import createConnection
+
+
+class LoginWindow(QMainWindow):
+    
+    def __init__(self):
+        QMainWindow.__init__(self)
+        self.uiLogin = Ui_login()
+        self.uiLogin.setupUi(self)
+        self.login_data = None
+        self.show()
+
+        self.uiLogin.frame_error.hide()
+        self.uiLogin.pushButton_close_error.clicked.connect(lambda: self.uiLogin.frame_error.hide())
+
+        self.uiLogin.pushButton_enter.clicked.connect(self.checkFields)
+
+
+
+
+
+
+    def checkFields(self):
+        self.username_text = ""
+        self.password_text = ""
+
+        def showError(self, message):
+            self.uiLogin.frame_error.show()
+            self.uiLogin.label_error.setText(self.message)
+            
+
+        
+        if not self.uiLogin.lineEdit_login.text():
+            self.username_text = " Username Empty. "
+        else:
+            self.username_text = ""
+
+        if not self.uiLogin.lineEdit_pwd.text():
+            self.password_text = " Password Empty. "
+        else:
+            self.password_text = ""
+        
+        if self.username_text + self.password_text != "":
+            self.message = self.username_text + self.password_text
+            showError(self, self.message)
+        else:
+            self.message = " Login OK! "
+            if self.uiLogin.checkBox_remember.isChecked():
+                self.message = self.message +  " | Remembered "
+                showError(self, self.message)
+
+
+
 
 
 class Window(QMainWindow):
@@ -16,10 +69,10 @@ class Window(QMainWindow):
         self.ui = Ui_MainWindow()
         self.managerModel = ManagerModel()
         self.ui.setupUi(self)
-        self.show()
+        ##self.show()
 
 
-
+        
         self.ui.tableView.setModel(self.managerModel.model)
         self.ui.tableView.setSelectionBehavior(QAbstractItemView.SelectRows)
         self.ui.tableView.resizeColumnsToContents()
@@ -75,18 +128,18 @@ class AddDialog(QDialog):
 
     def __init__(self, parent=None):
         QDialog.__init__(self, parent=parent)
-        self.ui_dialog = Ui_Dialog()
+        self.uiDialog = Ui_Dialog()
         self.data = None
-        self.ui_dialog.setupUi(self)
+        self.uiDialog.setupUi(self)
 
 
         
-        self.platformField = self.ui_dialog.lineEdit_platform
-        self.loginField = self.ui_dialog.lineEdit_username
-        self.passwordField = self.ui_dialog.lineEdit_password
+        self.platformField = self.uiDialog.lineEdit_platform
+        self.loginField = self.uiDialog.lineEdit_username
+        self.passwordField = self.uiDialog.lineEdit_password
 
-        self.ui_dialog.buttonBox.accepted.connect(self.accept)
-        self.ui_dialog.buttonBox.rejected.connect(self.reject)
+        self.uiDialog.buttonBox.accepted.connect(self.accept)
+        self.uiDialog.buttonBox.rejected.connect(self.reject)
 
 
 
@@ -120,6 +173,7 @@ if __name__ == "__main__":
     if not createConnection("accounts.sqlite"):
         sys.exit(1)
 
-    Dialog = QtWidgets.QDialog()
+    login = LoginWindow()
     window = Window()
+    Dialog = QtWidgets.QDialog()
     sys.exit(app.exec_())

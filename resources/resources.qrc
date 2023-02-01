@@ -2,6 +2,12 @@
   <qresource prefix="error-icon">
     <file>cil-x.png</file>
   </qresource>
+  <qresource prefix="top_bar">
+    <file>top_bar2.png</file>
+  </qresource>
+  <qresource prefix="bottom_bar">
+    <file>background_bottom.png</file>
+  </qresource>
   <qresource prefix="profile-pic">
     <file>avatar.png</file>
   </qresource>
