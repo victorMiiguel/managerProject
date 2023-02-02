@@ -22,6 +22,9 @@ class Ui_MainWindow(object):
         font.setFamily("OCR A Extended")
         font.setPointSize(11)
         MainWindow.setFont(font)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(":/icon/Icon.ico"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        MainWindow.setWindowIcon(icon)
         MainWindow.setStyleSheet("")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -124,6 +127,32 @@ class Ui_MainWindow(object):
 "}")
         self.pushButton_delete_all.setObjectName("pushButton_delete_all")
         self.horizontalLayout.addWidget(self.pushButton_delete_all)
+        spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout.addItem(spacerItem1)
+        self.pushButton_out = QtWidgets.QPushButton(self.frame_top)
+        self.pushButton_out.setMinimumSize(QtCore.QSize(55, 40))
+        font = QtGui.QFont()
+        font.setFamily("OCR A Extended")
+        font.setPointSize(11)
+        self.pushButton_out.setFont(font)
+        self.pushButton_out.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.pushButton_out.setStyleSheet("QPushButton {\n"
+"    margin-right: 10px;\n"
+"    background-color: rgb(100, 100, 100);\n"
+"    border-radius: 20.3px;\n"
+"    border:2px solid rgb(35, 35, 35)\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(90, 90, 90);\n"
+"}\n"
+"QPushButton:pressed {\n"
+"    background-color: rgb(255, 207, 0);\n"
+"    border: 2px solid rgb(255, 120, 0);\n"
+"    color: rgb(35, 35, 35);\n"
+"}")
+        self.pushButton_out.setIconSize(QtCore.QSize(24, 24))
+        self.pushButton_out.setObjectName("pushButton_out")
+        self.horizontalLayout.addWidget(self.pushButton_out)
         self.verticalLayout.addWidget(self.frame_top)
         self.frame_center = QtWidgets.QFrame(self.centralwidget)
         self.frame_center.setMinimumSize(QtCore.QSize(700, 0))

@@ -14,11 +14,12 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_login(object):
     def setupUi(self, login):
         login.setObjectName("login")
-        login.resize(820, 888)
+        login.resize(820, 848)
         login.setMinimumSize(QtCore.QSize(620, 700))
         login.setMaximumSize(QtCore.QSize(820, 1400))
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(":/window_icon/C:/Users/Miguel/Desktop/Images/Icon.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(":/icon/Icon.ico"), QtGui.QIcon.Normal, QtGui.QIcon.On)
         login.setWindowIcon(icon)
         login.setStyleSheet("color:rgb(240, 248, 255);\n"
 "background-color: rgb(0, 0, 0);")
@@ -72,7 +73,6 @@ class Ui_login(object):
 "    border:3px solid rgb(255,207,0);\n"
 "    background-position:center\n"
 "}\n"
-"QFrame:hover {\n"
 "}")
         self.frame_pfp.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.frame_pfp.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -212,6 +212,20 @@ class Ui_login(object):
         self.pushButton_close_error.setText("")
         self.pushButton_close_error.setObjectName("pushButton_close_error")
         self.horizontalLayout_3.addWidget(self.pushButton_close_error)
+        self.toolButton_signUp = QtWidgets.QToolButton(self.center)
+        self.toolButton_signUp.setGeometry(QtCore.QRect(340, 435, 81, 21))
+        font = QtGui.QFont()
+        font.setFamily("OCR A Extended")
+        font.setPointSize(10)
+        self.toolButton_signUp.setFont(font)
+        self.toolButton_signUp.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.toolButton_signUp.setStyleSheet("QToolButton:hover {\n"
+"    color: rgb(186, 184, 255);\n"
+"}\n"
+"QToolButton:pressed {\n"
+"    color: rgb(255, 207, 0);\n"
+"}")
+        self.toolButton_signUp.setObjectName("toolButton_signUp")
         self.frame_error.raise_()
         self.frame_logo.raise_()
         self.frame_pfp.raise_()
@@ -219,6 +233,7 @@ class Ui_login(object):
         self.lineEdit_pwd.raise_()
         self.checkBox_remember.raise_()
         self.pushButton_enter.raise_()
+        self.toolButton_signUp.raise_()
         self.horizontalLayout.addWidget(self.center)
         self.verticalLayout.addWidget(self.content)
         self.bottom_bar = QtWidgets.QFrame(self.centralwidget)
@@ -256,15 +271,7 @@ class Ui_login(object):
         self.checkBox_remember.setText(_translate("login", "Remember me"))
         self.pushButton_enter.setText(_translate("login", "Enter"))
         self.label_error.setText(_translate("login", "Error"))
+        self.toolButton_signUp.setText(_translate("login", "Sign Up"))
         self.label_credits.setText(_translate("login", "Created by Miguel Victor"))
 import resources_login
 
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    login = QtWidgets.QMainWindow()
-    ui = Ui_login()
-    ui.setupUi(login)
-    login.show()
-    sys.exit(app.exec_())

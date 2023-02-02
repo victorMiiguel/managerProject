@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>820</width>
-    <height>888</height>
+    <height>848</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -27,7 +27,8 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>:/window_icon/C:/Users/Miguel/Desktop/Images/Icon.ico</normaloff>:/window_icon/C:/Users/Miguel/Desktop/Images/Icon.ico</iconset>
+    <normaloff>:/window_icon/C:/Users/Miguel/Desktop/Images/Icon.ico</normaloff>
+    <normalon>:/icon/Icon.ico</normalon>:/window_icon/C:/Users/Miguel/Desktop/Images/Icon.ico</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">color:rgb(240, 248, 255);
@@ -442,6 +443,36 @@ QPushButton:pressed {
            </item>
           </layout>
          </widget>
+         <widget class="QToolButton" name="toolButton_signUp">
+          <property name="geometry">
+           <rect>
+            <x>340</x>
+            <y>435</y>
+            <width>81</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>OCR A Extended</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QToolButton:hover {
+	color: rgb(186, 184, 255);
+}
+QToolButton:pressed {
+	color: rgb(255, 184, 140);
+}</string>
+          </property>
+          <property name="text">
+           <string>Sign Up</string>
+          </property>
+         </widget>
          <zorder>frame_error</zorder>
          <zorder>frame_logo</zorder>
          <zorder>frame_pfp</zorder>
@@ -449,6 +480,7 @@ QPushButton:pressed {
          <zorder>lineEdit_pwd</zorder>
          <zorder>checkBox_remember</zorder>
          <zorder>pushButton_enter</zorder>
+         <zorder>toolButton_signUp</zorder>
         </widget>
        </item>
       </layout>

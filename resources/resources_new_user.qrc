@@ -2,10 +2,10 @@
   <qresource prefix="header">
     <file>top_bar2.png</file>
   </qresource>
+  <qresource prefix="logo">
+    <file>logo_360x90.png</file>
+  </qresource>
   <qresource prefix="footer">
     <file>background_bottom.png</file>
-  </qresource>
-  <qresource prefix="icon">
-    <file>Icon.ico</file>
   </qresource>
 </RCC>
