@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import sys
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import *
 from ui_login import Ui_login
 from ui_main_window import Ui_MainWindow
@@ -34,7 +34,7 @@ class LoginWindow(QMainWindow):
         self.username_text = ""
         self.password_text = ""
 
-        def showError(self, message):
+        def showMessage(self, message):
             self.uiLogin.frame_error.show()
             self.uiLogin.label_error.setText(self.message)
             
@@ -52,14 +52,16 @@ class LoginWindow(QMainWindow):
         
         if self.username_text + self.password_text != "":
             self.message = self.username_text + self.password_text
-            showError(self, self.message)
+            showMessage(self, self.message)
         else:
             self.message = " Login OK! "
-            self.hide()
-            self.uiMainWindow.show()
+            
             if self.uiLogin.checkBox_remember.isChecked():
                 self.message = self.message +  " | Remembered "
-                showError(self, self.message)
+
+            showMessage(self, self.message)
+            self.hide()
+            self.uiMainWindow.show()
 
 
 
@@ -72,8 +74,6 @@ class Window(QMainWindow):
         self.ui = Ui_MainWindow()
         self.managerModel = ManagerModel()
         self.ui.setupUi(self)
-
-
 
         
         self.ui.tableView.setModel(self.managerModel.model)
