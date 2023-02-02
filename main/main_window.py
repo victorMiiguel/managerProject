@@ -16,6 +16,7 @@ class LoginWindow(QMainWindow):
         QMainWindow.__init__(self)
         self.uiLogin = Ui_login()
         self.uiLogin.setupUi(self)
+        self.uiMainWindow = Window()
         self.login_data = None
         self.show()
 
@@ -54,6 +55,8 @@ class LoginWindow(QMainWindow):
             showError(self, self.message)
         else:
             self.message = " Login OK! "
+            self.hide()
+            self.uiMainWindow.show()
             if self.uiLogin.checkBox_remember.isChecked():
                 self.message = self.message +  " | Remembered "
                 showError(self, self.message)
@@ -69,7 +72,7 @@ class Window(QMainWindow):
         self.ui = Ui_MainWindow()
         self.managerModel = ManagerModel()
         self.ui.setupUi(self)
-        ##self.show()
+
 
 
         
