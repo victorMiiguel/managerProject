@@ -16,7 +16,6 @@ class LoginWindow(QMainWindow, Ui_login):
         super(LoginWindow, self).__init__()
         self.uiLogin = Ui_login()
         self.uiLogin.setupUi(self)
-        self.newUser_window = Ui_NewUser()
         self.uiMainWindow = Window()
         self.login_data = None
         self.show()
