@@ -33,4 +33,5 @@ def createConnection(databaseName):
         )
         return False
     _createDataTable()
+    connection.close()
     return True

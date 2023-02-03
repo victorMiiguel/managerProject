@@ -46,12 +46,21 @@ class LoginWindow(QMainWindow, Ui_login):
         else:
             self.password_error = ""
         
+        if self.uiLogin.lineEdit_login.text() != "Admin":
+            self.username_error = " Invalid Username "
+        else:
+            self.username_error = ""
+        
+        if self.uiLogin.lineEdit_pwd.text() != "1234":
+            self.password_error = " Invalid Password "
+        else:
+            self.password_error = ""
+
         if self.username_error + self.password_error != "":
             self.message = self.username_error + self.password_error
             showMessage(self, self.message)
         else:
-            self.message = " Login OK! "
-            
+
             if self.uiLogin.checkBox_remember.isChecked():
                 self.message = self.message +  " | Remembered "
 
