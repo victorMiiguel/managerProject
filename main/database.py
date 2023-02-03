@@ -4,6 +4,7 @@
 from PyQt5.QtWidgets import QMessageBox
 from PyQt5.QtSql import QSqlDatabase, QSqlQuery
 
+
 def _createDataTable():
         # Create the contacts table in the database 
     createTableQuery = QSqlQuery()
@@ -11,9 +12,9 @@ def _createDataTable():
         """
         CREATE TABLE IF NOT EXISTS accounts (
             id INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE NOT NULL,
-            platform VARCHAR(40) NOT NULL,
-            login VARCHAR(50) NOT NULL,
-            password VARCHAR(40) NOT NULL
+            platform VARCHAR(100) NOT NULL,
+            login VARCHAR(100) NOT NULL,
+            password VARCHAR(100) NOT NULL
         )
         """
     )

@@ -4,6 +4,7 @@ import sys
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import *
 from ui_login import Ui_login
+from ui_new_user import Ui_NewUser
 from ui_main_window import Ui_MainWindow
 from ui_dialog_box import Ui_Dialog
 from model import ManagerModel
@@ -16,23 +17,20 @@ class LoginWindow(QMainWindow, Ui_login):
         super(LoginWindow, self).__init__()
         self.uiLogin = Ui_login()
         self.uiLogin.setupUi(self)
+        self.newUser_window = Ui_NewUser()
         self.uiMainWindow = Window()
         self.login_data = None
         self.show()
 
         self.uiLogin.frame_error.hide()
         self.uiLogin.pushButton_close_error.clicked.connect(lambda: self.uiLogin.frame_error.hide())
-
         self.uiLogin.pushButton_enter.clicked.connect(self.checkFields)
 
 
 
-
-
-
     def checkFields(self):
-        self.username_text = ""
-        self.password_text = ""
+        self.username_error = ""
+        self.password_error = ""
 
         def showMessage(self, message):
             self.uiLogin.frame_error.show()
@@ -41,17 +39,17 @@ class LoginWindow(QMainWindow, Ui_login):
 
         
         if not self.uiLogin.lineEdit_login.text():
-            self.username_text = " Username Empty. "
+            self.username_error = " Username Empty. "
         else:
-            self.username_text = ""
+            self.username_error = ""
 
         if not self.uiLogin.lineEdit_pwd.text():
-            self.password_text = " Password Empty. "
+            self.password_error = " Password Empty. "
         else:
-            self.password_text = ""
+            self.password_error = ""
         
-        if self.username_text + self.password_text != "":
-            self.message = self.username_text + self.password_text
+        if self.username_error + self.password_error != "":
+            self.message = self.username_error + self.password_error
             showMessage(self, self.message)
         else:
             self.message = " Login OK! "
@@ -60,9 +58,8 @@ class LoginWindow(QMainWindow, Ui_login):
                 self.message = self.message +  " | Remembered "
 
             showMessage(self, self.message)
-            self.hide()
+            self.close()
             self.uiMainWindow.show()
-
 
 
 

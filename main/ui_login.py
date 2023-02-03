@@ -212,20 +212,6 @@ class Ui_login(object):
         self.pushButton_close_error.setText("")
         self.pushButton_close_error.setObjectName("pushButton_close_error")
         self.horizontalLayout_3.addWidget(self.pushButton_close_error)
-        self.toolButton_signUp = QtWidgets.QToolButton(self.center)
-        self.toolButton_signUp.setGeometry(QtCore.QRect(340, 435, 81, 21))
-        font = QtGui.QFont()
-        font.setFamily("OCR A Extended")
-        font.setPointSize(10)
-        self.toolButton_signUp.setFont(font)
-        self.toolButton_signUp.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.toolButton_signUp.setStyleSheet("QToolButton:hover {\n"
-"    color: rgb(186, 184, 255);\n"
-"}\n"
-"QToolButton:pressed {\n"
-"    color: rgb(255, 207, 0);\n"
-"}")
-        self.toolButton_signUp.setObjectName("toolButton_signUp")
         self.frame_error.raise_()
         self.frame_logo.raise_()
         self.frame_pfp.raise_()
@@ -233,7 +219,6 @@ class Ui_login(object):
         self.lineEdit_pwd.raise_()
         self.checkBox_remember.raise_()
         self.pushButton_enter.raise_()
-        self.toolButton_signUp.raise_()
         self.horizontalLayout.addWidget(self.center)
         self.verticalLayout.addWidget(self.content)
         self.bottom_bar = QtWidgets.QFrame(self.centralwidget)
@@ -271,7 +256,6 @@ class Ui_login(object):
         self.checkBox_remember.setText(_translate("login", "Remember me"))
         self.pushButton_enter.setText(_translate("login", "Enter"))
         self.label_error.setText(_translate("login", "Error"))
-        self.toolButton_signUp.setText(_translate("login", "Sign Up"))
         self.label_credits.setText(_translate("login", "Created by Miguel Victor"))
 import resources_login
 
