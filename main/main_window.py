@@ -4,7 +4,6 @@ import sys
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import *
 from ui_login import Ui_login
-from ui_new_user import Ui_NewUser
 from ui_main_window import Ui_MainWindow
 from ui_dialog_box import Ui_Dialog
 from model import ManagerModel
