@@ -10,10 +10,10 @@ from model import ManagerModel
 from database import createConnection
 
 
-class LoginWindow(QMainWindow):
+class LoginWindow(QMainWindow, Ui_login):
     
     def __init__(self):
-        QMainWindow.__init__(self)
+        super(LoginWindow, self).__init__()
         self.uiLogin = Ui_login()
         self.uiLogin.setupUi(self)
         self.uiMainWindow = Window()
@@ -67,10 +67,10 @@ class LoginWindow(QMainWindow):
 
 
 
-class Window(QMainWindow):
+class Window(QMainWindow, Ui_MainWindow):
 
     def __init__(self):
-        QMainWindow.__init__(self)
+        super(Window, self).__init__()
         self.ui = Ui_MainWindow()
         self.managerModel = ManagerModel()
         self.ui.setupUi(self)
@@ -130,7 +130,7 @@ class Window(QMainWindow):
 class AddDialog(QDialog):
 
     def __init__(self, parent=None):
-        QDialog.__init__(self, parent=parent)
+        super(AddDialog, self).__init__(parent=parent)
         self.uiDialog = Ui_Dialog()
         self.data = None
         self.uiDialog.setupUi(self)
