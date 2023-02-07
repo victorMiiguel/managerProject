@@ -6,7 +6,7 @@ from PyQt5.QtSql import QSqlDatabase, QSqlQuery
 
 
 def _createDataTable():
-        # Create the contacts table in the database 
+    """Create the contacts table in the database """
     createTableQuery = QSqlQuery()
     return createTableQuery.exec(
         """
@@ -21,7 +21,7 @@ def _createDataTable():
 
 
 def createConnection(databaseName):
-        # Create and open a database connection
+    """Create and open a database connection"""
     connection = QSqlDatabase.addDatabase("QSQLITE")
     connection.setDatabaseName(databaseName)
 

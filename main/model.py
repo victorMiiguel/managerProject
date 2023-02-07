@@ -11,7 +11,7 @@ class ManagerModel:
 
     @staticmethod
     def _createModel():
-        # Create and set up model
+        """Create and set up model"""
         tableModel = QSqlTableModel()
         tableModel.setTable("accounts")
         tableModel.setEditStrategy(QSqlTableModel.OnFieldChange)
@@ -22,7 +22,7 @@ class ManagerModel:
         return tableModel
 
     def addContent(self, data):
-            # Add new content to database
+        """Accept and Save data into the database."""
         rows = self.model.rowCount()
         self.model.insertRows(rows, 1)
         for column_index, field in enumerate(data):
@@ -31,13 +31,13 @@ class ManagerModel:
         self.model.select()
         
     def deleteContent(self, row):
-        """Remove a contact from the database."""
+        """Delete the selected information from the database."""
         self.model.removeRow(row)
         self.model.submitAll()
         self.model.select()
 
     def clearContents(self):
-        """Remove all contacts in the database."""
+        """Remove all data from the database."""
         self.model.setEditStrategy(QSqlTableModel.OnManualSubmit)
         self.model.removeRows(0, self.model.rowCount())
         self.model.submitAll()

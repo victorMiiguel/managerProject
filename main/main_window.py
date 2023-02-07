@@ -19,7 +19,9 @@ class LoginWindow(QMainWindow, Ui_login):
         self.uiMainWindow = Window()
         self.login_data = None
         self.show()
-
+        #
+        #   FUNCTIONS
+        #
         self.uiLogin.frame_error.hide()
         self.uiLogin.pushButton_close_error.clicked.connect(lambda: self.uiLogin.frame_error.hide())
         self.uiLogin.pushButton_enter.clicked.connect(self.checkFields)
@@ -27,10 +29,12 @@ class LoginWindow(QMainWindow, Ui_login):
 
 
     def checkFields(self):
+        """Checks login fields for the correct information"""
         self.username_error = ""
         self.password_error = ""
 
         def showMessage(self, message):
+            """Show error message"""
             self.uiLogin.frame_error.show()
             self.uiLogin.label_error.setText(self.message)
             
@@ -74,8 +78,9 @@ class Window(QMainWindow, Ui_MainWindow):
         self.ui = Ui_MainWindow()
         self.managerModel = ManagerModel()
         self.ui.setupUi(self)
-
-        
+        #
+        #   FUNCTIONS
+        #
         self.ui.tableView.setModel(self.managerModel.model)
         self.ui.tableView.setSelectionBehavior(QAbstractItemView.SelectRows)
         self.ui.tableView.resizeColumnsToContents()
@@ -86,7 +91,7 @@ class Window(QMainWindow, Ui_MainWindow):
     
 
     def openAddDialog(self):
-        """Open dialog box to add new information into database"""
+        """Open dialog box to add new data into database"""
         dialog = AddDialog(self)
         if dialog.exec() == QDialog.Accepted:
             self.managerModel.addContent(dialog.data)
@@ -113,7 +118,7 @@ class Window(QMainWindow, Ui_MainWindow):
 
 
     def clearContents(self):
-        """Remove all contacts from the database."""
+        """Remove all data from the database."""
         messageBox = QMessageBox.warning(
             self,
             "Warning!",
@@ -134,9 +139,9 @@ class AddDialog(QDialog):
         self.uiDialog = Ui_Dialog()
         self.data = None
         self.uiDialog.setupUi(self)
-
-
-        
+        #
+        #   FUNCTIONS
+        #
         self.platformField = self.uiDialog.lineEdit_platform
         self.loginField = self.uiDialog.lineEdit_username
         self.passwordField = self.uiDialog.lineEdit_password
@@ -147,7 +152,7 @@ class AddDialog(QDialog):
 
 
     def accept(self):
-
+        """Accept and Save data into the database."""
         self.data = []
         for field in (self.platformField, self.loginField, self.passwordField):
             if not field.text():
